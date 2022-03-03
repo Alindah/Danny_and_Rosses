@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 27b2847164f463f4097912f69e7fe333
+guid: eb8be1fc1bdebbf43bb9f8fbdfab4d5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7067176810482676727
-    second: player_rosses
+      213: -6628414004274166170
+    second: gun_rifle
   - first:
-      213: -7725044929260168603
-    second: player_danny
+      213: -3058517067305430257
+    second: ammo_0
   - first:
-      213: -8245866535709944135
-    second: players_2
+      213: -9025246451835624311
+    second: ammo_1
+  - first:
+      213: -6513206380828838369
+    second: gun_pistol
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,9 +44,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -64,6 +67,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -110,43 +115,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_rosses
+      name: gun_rifle
       rect:
         serializedVersion: 2
-        x: 46
-        y: 967
-        width: 189
-        height: 89
+        x: 0
+        y: 69
+        width: 99
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90c4d4662285ced90800000000000000
-      internalID: -7067176810482676727
+      spriteID: 666830bf4942304a0800000000000000
+      internalID: -6628414004274166170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_danny
+      name: ammo_0
       rect:
         serializedVersion: 2
-        x: 1453
-        y: 943
-        width: 133
-        height: 99
+        x: 110
+        y: 62
+        width: 111
+        height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56ad38dd0902bc490800000000000000
-      internalID: -7725044929260168603
+      spriteID: f035ac79ee6fd85d0800000000000000
+      internalID: -3058517067305430257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ammo_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 7
+        width: 52
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 984abfb7b22efb280800000000000000
+      internalID: -9025246451835624311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun_pistol
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 56
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16b3e91e417c95a0800000000000000
+      internalID: -6513206380828838369
       vertices: []
       indices: 
       edges: []

@@ -3,24 +3,6 @@ guid: 166430c869360fc489c29ce1a00b16d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8483051222464998911
-    second: platforms_0
-  - first:
-      213: 1177557654815410699
-    second: platforms_1
-  - first:
-      213: -6327628624318395971
-    second: platforms_2
-  - first:
-      213: -479701902432577090
-    second: platforms_3
-  - first:
-      213: 8912230503697120500
-    second: platforms_4
-  - first:
-      213: 8651378938140933333
-    second: platforms_5
-  - first:
       213: -5113850848988359095
     second: platform_0
   - first:
@@ -34,9 +16,6 @@ TextureImporter:
     second: platform_3
   - first:
       213: -1072909842168288905
-    second: platform_4
-  - first:
-      213: 42036409538050433
     second: platform_4
   externalObjects: {}
   serializedVersion: 11
@@ -68,9 +47,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -91,6 +70,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -140,10 +121,10 @@ TextureImporter:
       name: platform_0
       rect:
         serializedVersion: 2
-        x: 741
-        y: 995
-        width: 318
-        height: 59
+        x: 18
+        y: 306
+        width: 662
+        height: 138
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +142,10 @@ TextureImporter:
       name: platform_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 854
-        width: 646
-        height: 137
+        x: 760
+        y: 405
+        width: 319
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +163,10 @@ TextureImporter:
       name: platform_2
       rect:
         serializedVersion: 2
-        x: 1113
-        y: 866
-        width: 563
-        height: 100
+        x: 25
+        y: 182
+        width: 620
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +184,10 @@ TextureImporter:
       name: platform_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 407
-        width: 1676
-        height: 161
+        x: 688
+        y: 228
+        width: 672
+        height: 154
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +205,10 @@ TextureImporter:
       name: platform_4
       rect:
         serializedVersion: 2
-        x: 569
+        x: 0
         y: 0
-        width: 672
-        height: 153
+        width: 1721
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 189f52a44e7559000800000000000000
-      internalID: 42036409538050433
+      spriteID: 779e98dde224c11f0800000000000000
+      internalID: -1072909842168288905
       vertices: []
       indices: 
       edges: []

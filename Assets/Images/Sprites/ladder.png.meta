@@ -50,9 +50,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -73,6 +73,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -122,10 +124,10 @@ TextureImporter:
       name: ladder_0
       rect:
         serializedVersion: 2
-        x: 470
-        y: 537
-        width: 131
-        height: 348
+        x: 0
+        y: 324
+        width: 132
+        height: 350
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +145,10 @@ TextureImporter:
       name: ladder_1
       rect:
         serializedVersion: 2
-        x: 686
-        y: 542
-        width: 115
-        height: 476
+        x: 141
+        y: 205
+        width: 116
+        height: 478
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,10 +166,10 @@ TextureImporter:
       name: ladder_2
       rect:
         serializedVersion: 2
-        x: 1095
-        y: 527
+        x: 279
+        y: 321
         width: 146
-        height: 366
+        height: 367
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +187,10 @@ TextureImporter:
       name: ladder_3
       rect:
         serializedVersion: 2
-        x: 666
-        y: 127
-        width: 115
-        height: 298
+        x: 5
+        y: 0
+        width: 116
+        height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +208,10 @@ TextureImporter:
       name: ladder_4
       rect:
         serializedVersion: 2
-        x: 847
-        y: 0
-        width: 62
-        height: 157
+        x: 139
+        y: 27
+        width: 63
+        height: 158
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,9 +229,9 @@ TextureImporter:
       name: ladder_5
       rect:
         serializedVersion: 2
-        x: 1049
-        y: 115
-        width: 126
+        x: 243
+        y: 0
+        width: 128
         height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
