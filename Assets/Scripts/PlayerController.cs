@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("MOVEMENT")]
     public float speed = 5.0f;
-    public Vector3 orientation;     // x = -1 if facing left, 1 if facing right
+    public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
+    public float xBoundary = 8.0f;
     private float horizontalInput;
     private float verticalInput;
     private Rigidbody2D rb;
@@ -39,7 +40,10 @@ public class PlayerController : MonoBehaviour
             if (horizontalSpeed * orientation.x < 0)
                 FlipPlayer();
 
-            transform.Translate(Vector3.right * horizontalSpeed);
+            // Do not allow movement beyond boundary
+            if (Mathf.Abs(transform.position.x + horizontalSpeed) < Mathf.Abs(xBoundary))
+                transform.Translate(Vector3.right * horizontalSpeed);
+            
             //transform.Translate(Vector3.up * verticalSpeed);
         }
     }

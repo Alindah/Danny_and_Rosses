@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 5463477}
   - component: {fileID: 5463478}
   - component: {fileID: 5463479}
+  - component: {fileID: 5463480}
   m_Layer: 8
   m_Name: enemy_monster
   m_TagString: Enemy
@@ -306,6 +307,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5463480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  orientation: {x: -1, y: 1, z: 1}
+  xBoundary: 6.3
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   orientation: {x: 1, y: 1, z: 1}
+  xBoundary: 8.5
 --- !u!50 &252507758
 Rigidbody2D:
   serializedVersion: 4
@@ -4224,6 +4241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   orientation: {x: -1, y: 1, z: 1}
+  xBoundary: 8.5
 --- !u!1 &1885964008
 GameObject:
   m_ObjectHideFlags: 0
