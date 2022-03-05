@@ -579,10 +579,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.9479451, y: 2.20743}
-      - {x: -0.3378172, y: 1.5693424}
-      - {x: -0.23447084, y: 0.88776827}
-      - {x: -1.6654804, y: -0.02695012}
-      - {x: -2.168425, y: -1.3978456}
+      - {x: -0.35229492, y: 1.4245621}
+      - {x: -0.1910367, y: 0.8009002}
+      - {x: -1.6220465, y: -0.08486223}
+      - {x: -2.1116164, y: -1.3978456}
       - {x: -2.2442758, y: -2.057512}
       - {x: 3.1840816, y: -2.0523787}
       - {x: 3.2267916, y: 2.2238755}
@@ -678,9 +678,9 @@ GameObject:
   m_Component:
   - component: {fileID: 252507755}
   - component: {fileID: 252507754}
-  - component: {fileID: 252507757}
   - component: {fileID: 252507756}
   - component: {fileID: 252507758}
+  - component: {fileID: 252507757}
   m_Layer: 6
   m_Name: player_rosses
   m_TagString: Player
@@ -829,6 +829,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  orientation: {x: 1, y: 1, z: 1}
 --- !u!50 &252507758
 Rigidbody2D:
   serializedVersion: 4
@@ -849,7 +851,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &259889375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1574,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3583,7 +3585,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.8160076}
@@ -4050,6 +4052,7 @@ GameObject:
   - component: {fileID: 1802440718}
   - component: {fileID: 1802440720}
   - component: {fileID: 1802440721}
+  - component: {fileID: 1802440722}
   m_Layer: 6
   m_Name: player_danny
   m_TagString: Player
@@ -4206,7 +4209,21 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
+--- !u!114 &1802440722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802440717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  orientation: {x: -1, y: 1, z: 1}
 --- !u!1 &1885964008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,7 +4399,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4523,7 +4540,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.31280327}
