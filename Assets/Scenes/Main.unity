@@ -319,8 +319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
   orientation: {x: -1, y: 1, z: 1}
+  speed: 4
+  jumpForce: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   xBoundary: 6.3
 --- !u!1 &8229347
 GameObject:
@@ -845,8 +849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   orientation: {x: 1, y: 1, z: 1}
+  speed: 5
+  jumpForce: 200
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   xBoundary: 8.5
 --- !u!50 &252507758
 Rigidbody2D:
@@ -860,10 +868,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.75
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2122,7 +2130,7 @@ GameObject:
   - component: {fileID: 916680075}
   - component: {fileID: 916680076}
   - component: {fileID: 916680077}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: platform_1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2705,7 +2713,7 @@ GameObject:
   - component: {fileID: 1271571369}
   - component: {fileID: 1271571370}
   - component: {fileID: 1271571371}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: platform_0
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2909,7 +2917,7 @@ GameObject:
   - component: {fileID: 1430658072}
   - component: {fileID: 1430658073}
   - component: {fileID: 1430658074}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: platform_4
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3850,7 +3858,7 @@ GameObject:
   - component: {fileID: 1741378631}
   - component: {fileID: 1741378632}
   - component: {fileID: 1741378633}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: platform_2
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -4218,10 +4226,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.75
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4239,8 +4247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
   orientation: {x: -1, y: 1, z: 1}
+  speed: 3
+  jumpForce: 200
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   xBoundary: 8.5
 --- !u!1 &1885964008
 GameObject:
@@ -4586,7 +4598,7 @@ GameObject:
   - component: {fileID: 2059642221}
   - component: {fileID: 2059642222}
   - component: {fileID: 2059642223}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: platform_3
   m_TagString: Platform
   m_Icon: {fileID: 0}
