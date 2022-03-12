@@ -14,16 +14,19 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     private Rigidbody2D rb;
-    private float def_speed;
+    private Collider2D col;
     private float gravity;
     private bool isOnLadder = false;
+    private bool isAboveLadder = false;
+    private bool isAtBottomLadder = false;
+    private float ladderOffset = 0.66f;     // Percent of body of player we will move below the platform while on a ladder - used to avoid platform collision
     private const string TAG_LADDER = "Ladder";
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        def_speed = speed;
+        col = GetComponent<PolygonCollider2D>();
         gravity = rb.gravityScale;
     }
 
@@ -41,11 +44,14 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         // Allow player to climb up and down ladders if within range
-        if (isOnLadder && Input.GetButton("Vertical"))
+        if (Input.GetButton("Vertical"))
         {
-            float verticalSpeed = Time.deltaTime * verticalInput * speed * climbSpeedPercent;
-            rb.velocity = new Vector2(0, 0);    // Reset velocity to prevent jumping onto ladder from altering speed
-            transform.Translate(Vector3.up * verticalSpeed);
+            if (isOnLadder)
+            {
+                float verticalSpeed = Time.deltaTime * verticalInput * speed * climbSpeedPercent;
+                rb.velocity = new Vector2(0, 0);    // Reset velocity to prevent jumping onto ladder from altering speed
+                transform.Translate(Vector3.up * verticalSpeed);
+            }
         }
 
         // Move the player in direction they pressed
@@ -95,7 +101,37 @@ public class PlayerController : MonoBehaviour
         // Check if player is on ladder
         if (other.tag == TAG_LADDER)
         {
+            if (other.GetType() == typeof(BoxCollider2D))
+            {
+                isAboveLadder = true;
+
+                // Teleport to bottom of box collider (top of ladder) and position slightly down for player model
+                if (Input.GetAxis("Vertical") < 0 && isAboveLadder)
+                {
+                    TeleportTo(new Vector2(other.bounds.center.x, other.bounds.min.y), new Vector2(0, -(col.bounds.max.y - col.bounds.min.y) * ladderOffset));
+                    isAboveLadder = false;
+                }
+                else if (Input.GetAxis("Vertical") > 0 && isOnLadder)
+                {
+                    TeleportTo(new Vector2(other.bounds.center.x, other.bounds.max.y), new Vector2(0, (col.bounds.max.y - col.bounds.min.y) * ladderOffset));
+                    isAboveLadder = true;
+                    isOnLadder = false;
+                }
+
+                return;
+            }
+
+            /*
+            // If player is on the ground, they are not on a ladder but can access
+            if (IsGrounded())
+            {
+                isOnLadder = false;
+                isAtBottomLadder = true;
+                return;
+            }*/
+
             isOnLadder = true;
+            isAboveLadder = false;
             rb.gravityScale = 0.0f;
         }
     }
@@ -107,6 +143,16 @@ public class PlayerController : MonoBehaviour
             isOnLadder = false;
             rb.gravityScale = gravity;
         }
+    }
+
+    // Teleport game object to 
+    private void TeleportTo(Vector2 position, Vector2 offset, bool keepVelocity = false)
+    {
+        // Do not allow current velocity to affect object after teleportation
+        if (!keepVelocity)
+            rb.gravityScale = 0.0f;
+
+        transform.position = position + offset;
     }
 
 }
