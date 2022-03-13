@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using static Constants;
 
 public class Entity : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class Entity : MonoBehaviour
     public bool flipOrientation = false;
 
     private GameController gameController;
-    private const string GAME_CONTROLLER_NAME = "GameController";
 
     // Start is called before the first frame update
     void Start()

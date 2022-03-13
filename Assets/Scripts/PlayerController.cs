@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constants;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("ENVIRONMENT")]
     public LayerMask groundLayer;
-    public float xBoundary = 8.0f;
+    public float xBoundary = 8.5f;
 
     [Header("MISC")]
     public GameController gameController;
@@ -26,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private bool allowClimbing = true;
     private bool isOnLadder = false;
     private bool isContactingLadder = false;
-    private const string TAG_LADDER = "Ladder";
 
     // Start is called before the first frame update
     void Start()
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == TAG_LADDER)
+        if (other.tag == LADDER_TAG)
         {
             isContactingLadder = true;
 
