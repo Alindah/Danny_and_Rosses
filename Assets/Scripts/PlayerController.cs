@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
     private float gravity;
+    private bool allowClimbing = true;
     private bool isOnLadder = false;
+    private bool isContactingLadder = false;
+    private float climbDelayTime = 0.5f;
     private const string TAG_LADDER = "Ladder";
 
     // Start is called before the first frame update
@@ -31,6 +34,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Used to delay ladder climbs because GetButtonDown() doesn't work in OnTriggerStay2D()
+        if ((Input.GetButtonDown("Vertical") && isContactingLadder && !isOnLadder))
+            allowClimbing = true;
+
         MovePlayer();
     }
 
@@ -99,8 +106,12 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == TAG_LADDER)
         {
+            isContactingLadder = true;
+
+
+
             // Allow access to ladder if on the ground
-            if (IsGrounded())
+            if (IsGrounded() && allowClimbing)
             {
                 // If above ladder, teleport to bottom of box collider (top of ladder) and position slightly down for player model when pressing down
                 if (Input.GetAxis("Vertical") < 0 && other.GetType() == typeof(BoxCollider2D))
@@ -108,6 +119,7 @@ public class PlayerController : MonoBehaviour
                     TeleportTo(new Vector2(other.bounds.center.x, other.bounds.min.y), new Vector2(0, -(col.bounds.max.y - col.bounds.min.y) * ladderOffset));
                     isOnLadder = true;
                     rb.gravityScale = 0.0f;
+                    allowClimbing = false;
                 }
                 // Climb onto a ladder from the bottom
                 else if (Input.GetAxis("Vertical") > 0 && other.GetType() != typeof(BoxCollider2D))
@@ -119,8 +131,7 @@ public class PlayerController : MonoBehaviour
                 // Player has reached the ground
                 else if (Input.GetAxis("Vertical") < 0 && isOnLadder)
                 {
-                    isOnLadder = false;
-                    rb.gravityScale = gravity;
+                    DropFromLadder();
                 }
             }
             else if (isOnLadder)
@@ -129,8 +140,12 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetAxis("Vertical") > 0 && other.GetType() == typeof(BoxCollider2D))
                 {
                     TeleportTo(new Vector2(other.bounds.center.x, other.bounds.max.y), new Vector2(0, (col.bounds.max.y - col.bounds.min.y) * ladderOffset));
-                    isOnLadder = false;
-                    rb.gravityScale = gravity;
+                    DropFromLadder();
+                }
+                // Player has reached the ground
+                else if (Input.GetAxis("Vertical") < 0 && IsGrounded())
+                {
+                    DropFromLadder();
                 }
             }
         }
@@ -144,5 +159,12 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(0, 0);
 
         transform.position = position + offset;
+    }
+
+    private void DropFromLadder()
+    {
+        isOnLadder = false;
+        rb.gravityScale = gravity;
+        allowClimbing = false;
     }
 }
