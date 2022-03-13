@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private bool allowClimbing = true;
     private bool isOnLadder = false;
     private bool isContactingLadder = false;
-    private float climbDelayTime = 0.5f;
     private const string TAG_LADDER = "Ladder";
 
     // Start is called before the first frame update
@@ -108,8 +107,6 @@ public class PlayerController : MonoBehaviour
         {
             isContactingLadder = true;
 
-
-
             // Allow access to ladder if on the ground
             if (IsGrounded() && allowClimbing)
             {
@@ -137,7 +134,7 @@ public class PlayerController : MonoBehaviour
             else if (isOnLadder)
             {
                 // Teleport above ladder onto platform if at top rung
-                if (Input.GetAxis("Vertical") > 0 && other.GetType() == typeof(BoxCollider2D))
+                if (Input.GetAxis("Vertical") > 0 && other.GetType() == typeof(BoxCollider2D) && col.bounds.max.y < other.bounds.max.y)
                 {
                     TeleportTo(new Vector2(other.bounds.center.x, other.bounds.max.y), new Vector2(0, (col.bounds.max.y - col.bounds.min.y) * ladderOffset));
                     DropFromLadder();

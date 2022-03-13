@@ -167,14 +167,13 @@ GameObject:
   - component: {fileID: 5463477}
   - component: {fileID: 5463478}
   - component: {fileID: 5463479}
-  - component: {fileID: 5463480}
   m_Layer: 8
   m_Name: enemy_monster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5463476
 Transform:
   m_ObjectHideFlags: 0
@@ -307,27 +306,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5463480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5463475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: -1, y: 1, z: 1}
-  speed: 4
-  climbSpeedPercent: 0.5
-  jumpForce: 0
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  xBoundary: 6.3
-  ladderOffset: 0.66
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,7 +4269,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016334772, y: 0}
+  m_Offset: {x: -0.021378756, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4302,7 +4280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.74558973, y: 1.01}
+  m_Size: {x: 0.8908229, y: 1.01}
   m_EdgeRadius: 0
 --- !u!1 &1885964008
 GameObject:
