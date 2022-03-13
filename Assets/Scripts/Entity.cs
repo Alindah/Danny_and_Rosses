@@ -8,12 +8,16 @@ public class Entity : MonoBehaviour
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
     public bool flipOrientation = false;
 
-    private GameController gameController;
+    protected GameController gameController;
+    protected Rigidbody2D rb;
+    protected Collider2D col;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         gameController = GameObject.Find(GAME_CONTROLLER_NAME).GetComponent<GameController>();
+        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<PolygonCollider2D>();
 
         if (flipOrientation)
             FlipEntity();

@@ -1,38 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using static Constants;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Entity
 {
     [Header("MOVEMENT")]
-    public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
-    public float speed = 5.0f;
     public float climbSpeedPercent = 0.5f;
     public float jumpForce = 200.0f;
     public float ladderOffset = 0.66f;     // Percent of body of player we will move below the platform while on a ladder - used to avoid platform collision
 
     [Header("ENVIRONMENT")]
     public LayerMask groundLayer;
-    public float xBoundary = 8.5f;
-
-    [Header("MISC")]
-    public GameController gameController;
 
     private float horizontalInput;
     private float verticalInput;
-    private Rigidbody2D rb;
-    private Collider2D col;
     private float gravity;
     private bool allowClimbing = true;
     private bool isOnLadder = false;
     private bool isContactingLadder = false;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<PolygonCollider2D>();
+        base.Start();
+
         gravity = rb.gravityScale;
     }
 

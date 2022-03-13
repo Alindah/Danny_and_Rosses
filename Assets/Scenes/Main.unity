@@ -227,7 +227,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -772420135
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1bbb1c7f3c0f7fd468d337417ec0d1a8, type: 3}
   m_Color: {r: 0.7803922, g: 0.73333335, b: 0.2901961, a: 1}
@@ -323,6 +323,7 @@ MonoBehaviour:
   speed: 2
   xBoundary: 8
   orientation: {x: -1, y: 1, z: 1}
+  flipOrientation: 1
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +558,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -772420135
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2010917458671493427, guid: 0b7f5bb81d7dda34d89dce54a7433c72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -744,7 +745,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -93953061
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ffc8169830f9baf46bf130e31f8971c8, type: 3}
   m_Color: {r: 0.7803922, g: 0.73333335, b: 0.2901961, a: 1}
@@ -847,16 +848,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {x: 1, y: 1, z: 1}
   speed: 5
+  xBoundary: 8.5
+  orientation: {x: 1, y: 1, z: 1}
+  flipOrientation: 0
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
-  xBoundary: 8.5
-  gameController: {fileID: 434576343}
 --- !u!50 &252507758
 Rigidbody2D:
   serializedVersion: 4
@@ -1955,7 +1956,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -772420135
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -5929405817864647190, guid: 0b7f5bb81d7dda34d89dce54a7433c72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3768,7 +3769,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -772420135
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c81a803a117a4c54fb4f36704c06d694, type: 3}
   m_Color: {r: 0.7803922, g: 0.73333335, b: 0.2901961, a: 1}
@@ -4195,7 +4196,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -93953061
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78a6c1461023b9d4dbcc4b08f7100732, type: 3}
   m_Color: {r: 0.7803922, g: 0.73333335, b: 0.2901961, a: 1}
@@ -4319,16 +4320,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad307752191914ba33ce9d436d017e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orientation: {x: -1, y: 1, z: 1}
   speed: 3
+  xBoundary: 8.5
+  orientation: {x: -1, y: 1, z: 1}
+  flipOrientation: 0
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
-  xBoundary: 8.5
-  gameController: {fileID: 434576343}
 --- !u!61 &1802440723
 BoxCollider2D:
   m_ObjectHideFlags: 0
