@@ -70,6 +70,11 @@ public class PlayerController : MonoBehaviour
             // Move in direction, but do not allow movement beyond boundary or on ladder
             if (Mathf.Abs(transform.position.x + horizontalSpeed) < Mathf.Abs(xBoundary) && !isOnLadder)
                 transform.Translate(Vector3.right * horizontalSpeed);
+
+            if (transform.position.x > xBoundary)
+                transform.position = new Vector2(xBoundary, transform.position.y);
+            else if (transform.position.x < -xBoundary)
+                transform.position = new Vector2(-xBoundary, transform.position.y);
         }
 
         // Make player jump
