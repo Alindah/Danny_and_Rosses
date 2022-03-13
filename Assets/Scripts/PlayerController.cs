@@ -9,11 +9,17 @@ public class PlayerController : MonoBehaviour
     public float speed = 5.0f;
     public float climbSpeedPercent = 0.5f;
     public float jumpForce = 200.0f;
+    public float ladderOffset = 0.66f;     // Percent of body of player we will move below the platform while on a ladder - used to avoid platform collision
+
+    [Header("ENVIRONMENT")]
     public LayerMask groundLayer;
     public float xBoundary = 8.0f;
+
+    [Header("MISC")]
+    public GameController gameController;
+
     private float horizontalInput;
     private float verticalInput;
-    public float ladderOffset = 0.66f;     // Percent of body of player we will move below the platform while on a ladder - used to avoid platform collision
     private Rigidbody2D rb;
     private Collider2D col;
     private float gravity;
@@ -33,11 +39,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Player must select their character before playing
+        if (!gameController.AssignPlayer)
+            return;
+
         // Used to delay ladder climbs because GetButtonDown() doesn't work in OnTriggerStay2D()
         if ((Input.GetButtonDown("Vertical") && isContactingLadder && !isOnLadder))
             allowClimbing = true;
-
+        
         MovePlayer();
+    }
+
+    private void OnMouseDown()
+    {
+        gameController.AssignPlayer = gameObject;
+        gameController.DestroyUnselected();
     }
 
     // Handle player movement

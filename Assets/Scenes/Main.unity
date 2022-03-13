@@ -153,7 +153,7 @@ Transform:
   - {fileID: 639004686}
   - {fileID: 103641359}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5463475
 GameObject:
@@ -186,7 +186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 872946309}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5463477
 SpriteRenderer:
@@ -264,9 +264,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.55766284, y: 2.2339413}
-      - {x: -0.7171883, y: 1.7874022}
-      - {x: -1.8119793, y: 1.3232858}
+    - - {x: -0.6139518, y: 1.5936551}
+      - {x: -0.815694, y: 1.5692825}
+      - {x: -1.7697625, y: 1.330322}
       - {x: -2.0044808, y: 0.834069}
       - {x: -1.8185747, y: -0.014777422}
       - {x: -1.329337, y: -0.26933646}
@@ -282,9 +282,10 @@ PolygonCollider2D:
       - {x: 1.132923, y: -1.6034558}
       - {x: 2.0159035, y: -2.046966}
       - {x: 1.5646363, y: -1.5023439}
-      - {x: 0.24635994, y: 1.5721183}
-      - {x: 0.2058922, y: 1.960357}
-      - {x: -0.16113111, y: 2.233533}
+      - {x: 0.22525156, y: 1.5017571}
+      - {x: 0.06516987, y: 1.5522618}
+      - {x: -0.12010616, y: 1.5962529}
+      - {x: -0.38628694, y: 1.6073186}
 --- !u!50 &5463479
 Rigidbody2D:
   serializedVersion: 4
@@ -834,11 +835,12 @@ MonoBehaviour:
   speed: 5
   climbSpeedPercent: 0.5
   jumpForce: 200
+  ladderOffset: 0.66
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
   xBoundary: 8.5
-  ladderOffset: 0.66
+  gameController: {fileID: 434576343}
 --- !u!50 &252507758
 Rigidbody2D:
   serializedVersion: 4
@@ -1143,7 +1145,7 @@ RectTransform:
   m_Children:
   - {fileID: 629746061}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1232,6 +1234,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &434576342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434576344}
+  - component: {fileID: 434576343}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &434576343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434576342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d8626b552ea6a4095486f2bceeb42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rossesObjects:
+  - {fileID: 252507753}
+  - {fileID: 1168412372}
+  - {fileID: 669360468}
+  dannyObjects:
+  - {fileID: 1802440717}
+  - {fileID: 1021914033}
+  - {fileID: 515336366}
+  labelObjects:
+  - {fileID: 2128225015}
+  - {fileID: 196887064}
+--- !u!4 &434576344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434576342}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479724953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,7 +1569,7 @@ Transform:
   - {fileID: 1885964010}
   - {fileID: 1492258377}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &537672176
 GameObject:
@@ -2122,10 +2178,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5463476}
   - {fileID: 1635838365}
+  - {fileID: 5463476}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &916680073
 GameObject:
@@ -2413,7 +2469,7 @@ Transform:
   - {fileID: 2059642220}
   - {fileID: 1430658071}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1094300233
 GameObject:
@@ -2577,7 +2633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1168412372
 GameObject:
@@ -2676,7 +2732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1262584537
 GameObject:
@@ -2878,7 +2934,7 @@ Transform:
   - {fileID: 317032648}
   - {fileID: 863361741}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332386334
 GameObject:
@@ -2912,7 +2968,7 @@ Transform:
   - {fileID: 669360469}
   - {fileID: 2128225016}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1430658071 stripped
 Transform:
@@ -2949,7 +3005,7 @@ Transform:
   - {fileID: 1802440719}
   - {fileID: 252507755}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461018336
 GameObject:
@@ -2981,7 +3037,7 @@ Transform:
   - {fileID: 1262584538}
   - {fileID: 553124359}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492258375
 GameObject:
@@ -3656,7 +3712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 872946309}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1635838366
 SpriteRenderer:
@@ -3843,7 +3899,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1741378629
 GameObject:
@@ -4251,11 +4307,12 @@ MonoBehaviour:
   speed: 3
   climbSpeedPercent: 0.5
   jumpForce: 200
+  ladderOffset: 0.66
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
   xBoundary: 8.5
-  ladderOffset: 0.66
+  gameController: {fileID: 434576343}
 --- !u!61 &1802440723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4401,7 +4458,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10971552, y: 0.6950629}
+  m_Offset: {x: -0.100625575, y: 0.6950629}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4412,7 +4469,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9712784, y: 0.29760695}
+  m_Size: {x: 0.5531416, y: 0.29760695}
   m_EdgeRadius: 0
 --- !u!1 &1939618472
 GameObject:
@@ -4553,7 +4610,7 @@ Transform:
   - {fileID: 1168412373}
   - {fileID: 1021914034}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005365296
 GameObject:
@@ -4674,7 +4731,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33041593, y: 2.5302901}
+  m_Offset: {x: 0.25769648, y: 2.5302901}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4685,7 +4742,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.58, y: 0.5214367}
+  m_Size: {x: 0.43456107, y: 0.5214367}
   m_EdgeRadius: 0
 --- !u!1 &2059642219
 GameObject:
@@ -4947,7 +5004,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11617792, y: 2.1861458}
+  m_Offset: {x: 0.10708797, y: 2.1861458}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4958,7 +5015,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92558265, y: 1.1797876}
+  m_Size: {x: 0.65288424, y: 1.1797876}
   m_EdgeRadius: 0
 --- !u!1 &2128225015
 GameObject:
