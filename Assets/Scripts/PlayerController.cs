@@ -42,8 +42,12 @@ public class PlayerController : Entity
 
     private void OnMouseDown()
     {
-        gameController.AssignPlayer = gameObject;
-        gameController.DestroyUnselected();
+        // Select a player to play by clicking on them
+        if (!gameController.AssignPlayer)
+        {
+            gameController.AssignPlayer = gameObject;
+            gameController.DestroyUnselected();
+        }
     }
 
     // Handle player movement
