@@ -6,10 +6,10 @@ TagManager:
   tags:
   - NPC
   - UI
-  - Pickup
   - Enemy
   - Ladder
   - Platform
+  - Weapon
   layers:
   - Default
   - TransparentFX
