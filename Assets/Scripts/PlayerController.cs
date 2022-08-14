@@ -18,7 +18,6 @@ public class PlayerController : Entity
     private bool isOnLadder = false;
     private bool isContactingLadder = false;
 
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
@@ -26,7 +25,6 @@ public class PlayerController : Entity
         gravity = rb.gravityScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Player must select their character before playing

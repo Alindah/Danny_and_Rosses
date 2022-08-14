@@ -12,7 +12,6 @@ public class Entity : MonoBehaviour
     protected Rigidbody2D rb;
     protected Collider2D col;
 
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         gameController = GameObject.Find(GAME_CONTROLLER_NAME).GetComponent<GameController>();
@@ -23,13 +22,7 @@ public class Entity : MonoBehaviour
             FlipEntity();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // Flip player towards direction they are moving
+    // Flip entity towards direction they are moving
     protected void FlipEntity()
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);

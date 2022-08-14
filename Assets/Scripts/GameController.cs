@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -17,13 +15,13 @@ public class GameController : MonoBehaviour
 
     public void DestroyUnselected()
     {
-        // Hide objects associated with Danny if user chose Rosses
+        // Destroy objects associated with Danny if user chose Rosses
         if (player == rossesObjects[0])
         {
             foreach (GameObject obj in dannyObjects)
                 Destroy(obj);
         }
-        // Hide objects associated with Rosses if user chose Danny
+        // Destroy objects associated with Rosses if user chose Danny
         else if (player == dannyObjects[0])
         {
             foreach (GameObject obj in rossesObjects)
@@ -38,5 +36,20 @@ public class GameController : MonoBehaviour
     {
         get { return player; }
         set { player = value; }
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public static bool IsGamePaused()
+    {
+        return Time.timeScale == 0f;
     }
 }
