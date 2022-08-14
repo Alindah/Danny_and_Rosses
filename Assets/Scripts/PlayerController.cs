@@ -21,7 +21,6 @@ public class PlayerController : Entity
     protected override void Start()
     {
         base.Start();
-
         gravity = rb.gravityScale;
     }
 
@@ -45,6 +44,7 @@ public class PlayerController : Entity
         {
             gameController.AssignPlayer = gameObject;
             gameController.DestroyUnselected();
+            GameController.ResumeGame();
         }
     }
 

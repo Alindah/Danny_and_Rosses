@@ -6,7 +6,6 @@ public class Entity : MonoBehaviour
     public float speed;
     public float xBoundary;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
-    public bool flipOrientation = false;
 
     protected GameController gameController;
     protected Rigidbody2D rb;
@@ -17,9 +16,6 @@ public class Entity : MonoBehaviour
         gameController = GameObject.Find(GAME_CONTROLLER_NAME).GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
-
-        if (flipOrientation)
-            FlipEntity();
     }
 
     // Flip entity towards direction they are moving

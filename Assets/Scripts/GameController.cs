@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     public void Start()
     {
-
+        PauseGame();
     }
 
     public void DestroyUnselected()
@@ -38,12 +38,12 @@ public class GameController : MonoBehaviour
         set { player = value; }
     }
 
-    private void PauseGame()
+    public static void PauseGame()
     {
         Time.timeScale = 0f;
     }
 
-    private void ResumeGame()
+    public static void ResumeGame()
     {
         Time.timeScale = 1f;
     }
