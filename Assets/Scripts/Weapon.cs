@@ -86,5 +86,9 @@ public class Weapon : MonoBehaviour
             ammoAvailable--;
             Debug.Log(ammoAvailable);
         }
+        else
+        {
+            // Click click click
+        }
     }
 }

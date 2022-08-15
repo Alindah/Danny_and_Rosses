@@ -73,7 +73,7 @@ public class PlayerController : Entity
 
             // Flip player if facing wrong direction
             if (horizontalSpeed * orientation.x < 0)
-                FlipPlayer();
+                FlipEntity();
 
             // Move in direction, but do not allow movement beyond boundary or on ladder
             if (Mathf.Abs(transform.position.x + horizontalSpeed) < Mathf.Abs(xBoundary) && !isOnLadder)
@@ -88,13 +88,6 @@ public class PlayerController : Entity
         // Make player jump
         if (IsGrounded() && Input.GetButtonDown("Jump") && !isOnLadder)
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
-    }
-
-    // Flip player towards direction they are moving
-    private void FlipPlayer()
-    {
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        orientation.x = -orientation.x;
     }
 
     // https://kylewbanks.com/blog/unity-2d-checking-if-a-character-or-object-is-on-the-ground-using-raycasts
