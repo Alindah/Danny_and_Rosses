@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
     public GameObject[] dannyObjects;       // First item must be player Danny
     public GameObject[] labelObjects;
 
-    private GameObject player;
+    private static GameObject player;
 
     public void Start()
     {
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
             Destroy(obj);
     }
 
-    public GameObject AssignPlayer
+    public static GameObject Player
     {
         get { return player; }
         set { player = value; }

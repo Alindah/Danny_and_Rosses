@@ -27,7 +27,7 @@ public class PlayerController : Entity
     void Update()
     {
         // Player must select their character before playing
-        if (!gameController.AssignPlayer)
+        if (!GameController.Player)
             return;
 
         // Used to delay ladder climbs because GetButtonDown() doesn't work in OnTriggerStay2D()
@@ -40,9 +40,9 @@ public class PlayerController : Entity
     private void OnMouseDown()
     {
         // Select a player to play by clicking on them
-        if (!gameController.AssignPlayer)
+        if (!GameController.Player)
         {
-            gameController.AssignPlayer = gameObject;
+            GameController.Player = gameObject;
             gameController.DestroyUnselected();
             GameController.ResumeGame();
         }
