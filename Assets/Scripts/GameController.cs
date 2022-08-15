@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class GameController : MonoBehaviour
     public void Start()
     {
         PauseGame();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void DestroyUnselected()

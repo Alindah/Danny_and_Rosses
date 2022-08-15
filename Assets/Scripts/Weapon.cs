@@ -50,6 +50,22 @@ public class Weapon : MonoBehaviour
             isColliding = false;
     }
 
+    public void AlignWithPlayerOrientation()
+    {
+        Vector3 playerOrientation = GameController.Player.GetComponent<Entity>().orientation;
+
+        // If weapon is held, set it to the player's orientation
+        if (Inventory.weapon)
+        {
+            orientation = weaponContainer.localScale;
+            return;
+        }
+
+        // If weapon is not held, make sure it's correctly oriented to the player before picking up
+        if (orientation != playerOrientation)
+            weaponContainer.localScale = new Vector3(-weaponContainer.transform.localScale.x, weaponContainer.transform.localScale.y, weaponContainer.transform.localScale.z);
+    }
+
     private bool IsWeaponHeld()
     {
         return Inventory.weapon != null && Inventory.weapon.gameObject == gameObject;
@@ -57,9 +73,8 @@ public class Weapon : MonoBehaviour
 
     private void PickUpWeapon()
     {
-        // If player and weapon are facing opposite directions when picked up, flip the weapon
-        if (GameController.Player.GetComponent<Entity>().orientation != orientation)
-            weaponContainer.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        // Make sure player and weapon are facing the same direction
+        AlignWithPlayerOrientation();
 
         // Set player as the parent
         weaponContainer.parent = playerWeaponContainer;
@@ -74,8 +89,9 @@ public class Weapon : MonoBehaviour
         if (Inventory.weapon == null)
             return;
 
-        // Only drop weapons that are being held
+        // Only drop weapons that are being held and make sure it's set to the correct facing orientation
         playerWeaponContainer.GetChild(0).parent = allWeaponsContainer;
+        AlignWithPlayerOrientation();
         Inventory.weapon = null;
     }
 
