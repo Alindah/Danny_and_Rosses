@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && Inventory.weapon != null && Inventory.weapon.gameObject == gameObject)
             DropWeapon();
 
         if (Input.GetKeyDown(KeyCode.E) && isColliding)
@@ -30,20 +30,8 @@ public class Weapon : MonoBehaviour
             if (!playerWeaponContainer)
                 playerWeaponContainer = GameController.Player.transform.Find(PLAYER_WEAPON_CONTAINER);
 
-            // Only pick up weapon if not holding one
-            if (Inventory.weapon == null)
-            {
-                // If player and weapon are facing opposite directions when picked up, flip the weapon
-                if (GameController.Player.GetComponent<Entity>().orientation != orientation)
-                    weaponContainer.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-                // Set player as the parent
-                weaponContainer.parent = playerWeaponContainer;
-                weaponContainer.position = playerWeaponContainer.position;
-
-                Inventory.weapon = gameObject.GetComponent<Weapon>();
-                Destroy(ammoObject);
-            }
+            DropWeapon();
+            PickUpWeapon();
         }
     }
 
@@ -59,16 +47,27 @@ public class Weapon : MonoBehaviour
             isColliding = false;
     }
 
+    private void PickUpWeapon()
+    {
+        // If player and weapon are facing opposite directions when picked up, flip the weapon
+        if (GameController.Player.GetComponent<Entity>().orientation != orientation)
+            weaponContainer.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+
+        // Set player as the parent
+        weaponContainer.parent = playerWeaponContainer;
+        weaponContainer.position = playerWeaponContainer.position;
+
+        Inventory.weapon = gameObject.GetComponent<Weapon>();
+        Destroy(ammoObject);
+    }
+
     private void DropWeapon()
     {
         if (Inventory.weapon == null)
             return;
 
         // Only drop weapons that are being held
-        if (Inventory.weapon.gameObject == gameObject)
-        {
-            weaponContainer.parent = allWeaponsContainer;
-            Inventory.weapon = null;
-        }            
+        playerWeaponContainer.GetChild(0).parent = allWeaponsContainer;
+        Inventory.weapon = null;
     }
 }

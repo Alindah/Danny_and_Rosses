@@ -1738,7 +1738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64237bf296c9c48809627158a9348536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponContainer: {fileID: 1461018337}
   ammoObject: {fileID: 8229347}
   ammoCapacity: 100
   ammoAvailable: 100
@@ -4776,7 +4775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64237bf296c9c48809627158a9348536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponContainer: {fileID: 1461018337}
   ammoObject: {fileID: 1745295672}
   ammoCapacity: 100
   ammoAvailable: 100
@@ -4789,7 +4787,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939618472}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
