@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X) && Inventory.weapon != null && Inventory.weapon.gameObject == gameObject)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && IsWeaponHeld())
             DropWeapon();
 
         if (Input.GetKeyDown(KeyCode.E) && isColliding)
@@ -33,6 +33,9 @@ public class Weapon : MonoBehaviour
             DropWeapon();
             PickUpWeapon();
         }
+
+        if (Input.GetKeyDown(KeyCode.X) && IsWeaponHeld())
+            FireWeapon();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +48,11 @@ public class Weapon : MonoBehaviour
     {
         if (collision.CompareTag(PLAYER_TAG))
             isColliding = false;
+    }
+
+    private bool IsWeaponHeld()
+    {
+        return Inventory.weapon != null && Inventory.weapon.gameObject == gameObject;
     }
 
     private void PickUpWeapon()
@@ -69,5 +77,14 @@ public class Weapon : MonoBehaviour
         // Only drop weapons that are being held
         playerWeaponContainer.GetChild(0).parent = allWeaponsContainer;
         Inventory.weapon = null;
+    }
+
+    private void FireWeapon()
+    {
+        if (ammoAvailable > 0)
+        {
+            ammoAvailable--;
+            Debug.Log(ammoAvailable);
+        }
     }
 }
