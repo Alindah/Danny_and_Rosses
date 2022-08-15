@@ -30,20 +30,20 @@ public class Weapon : MonoBehaviour
             if (!playerWeaponContainer)
                 playerWeaponContainer = GameController.Player.transform.Find(PLAYER_WEAPON_CONTAINER);
 
-            // If player is already holding a weapon, drop it
-            if (Inventory.weapon)
-                DropWeapon();
+            // Only pick up weapon if not holding one
+            if (Inventory.weapon == null)
+            {
+                // If player and weapon are facing opposite directions when picked up, flip the weapon
+                if (GameController.Player.GetComponent<Entity>().orientation != orientation)
+                    weaponContainer.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-            // If player and weapon are facing opposite directions when picked up, flip the weapon
-            if (GameController.Player.GetComponent<Entity>().orientation != orientation)
-                weaponContainer.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                // Set player as the parent
+                weaponContainer.parent = playerWeaponContainer;
+                weaponContainer.position = playerWeaponContainer.position;
 
-            // Set player as the parent
-            weaponContainer.parent = playerWeaponContainer;
-            weaponContainer.position = playerWeaponContainer.position;
-
-            Inventory.weapon = gameObject.GetComponent<Weapon>();
-            Destroy(ammoObject);
+                Inventory.weapon = gameObject.GetComponent<Weapon>();
+                Destroy(ammoObject);
+            }
         }
     }
 
@@ -61,8 +61,14 @@ public class Weapon : MonoBehaviour
 
     private void DropWeapon()
     {
+        if (Inventory.weapon == null)
+            return;
+
         // Only drop weapons that are being held
-        if (weaponContainer.parent != allWeaponsContainer)
+        if (Inventory.weapon.gameObject == gameObject)
+        {
             weaponContainer.parent = allWeaponsContainer;
+            Inventory.weapon = null;
+        }            
     }
 }
