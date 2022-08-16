@@ -3,7 +3,9 @@ using static Constants;
 
 public class Weapon : MonoBehaviour
 {
+    public GameObject ammoFloaty;
     public GameObject ammoObject;
+    public Transform bulletContainer;
     public int ammoCapacity;
     public int ammoAvailable;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
@@ -21,9 +23,11 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
+        // Drop weapon
         if (Input.GetKeyDown(KeyCode.LeftShift) && IsWeaponHeld())
             DropWeapon();
 
+        // Pick up or swap weapon
         if (Input.GetKeyDown(KeyCode.E) && isColliding)
         {
             // Get transform of current player's "hands"
@@ -34,6 +38,7 @@ public class Weapon : MonoBehaviour
             PickUpWeapon();
         }
 
+        // Fire weapon
         if (Input.GetKeyDown(KeyCode.X) && IsWeaponHeld())
             FireWeapon();
     }
@@ -81,7 +86,7 @@ public class Weapon : MonoBehaviour
         weaponContainer.position = playerWeaponContainer.position;
 
         Inventory.weapon = gameObject.GetComponent<Weapon>();
-        Destroy(ammoObject);
+        Destroy(ammoFloaty);
     }
 
     private void DropWeapon()
@@ -101,6 +106,7 @@ public class Weapon : MonoBehaviour
         {
             ammoAvailable--;
             Debug.Log(ammoAvailable);
+            Instantiate(ammoObject, bulletContainer);
         }
         else
         {
