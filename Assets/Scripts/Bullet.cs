@@ -3,21 +3,20 @@ using static Constants;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;
-
-    private PlayerController player;
+    private GameObject player;
     private float playerOrientation;
+    private float speed = 5.0f;
 
     private void Start()
     {
-        player = GameController.Player.GetComponent<PlayerController>();
-        playerOrientation = player.orientation.x;     // Direction player facing at time of firing
+        player = GameController.Player.gameObject;
+        playerOrientation = player.GetComponent<PlayerController>().orientation.x;     // Direction player facing at time of firing
+        speed = player.transform.GetComponentInChildren<Weapon>().projectileSpeed;
         transform.parent = GameObject.Find(SPAWN_CONTAINER).transform;  // Place bullet in Spawn Container to avoid flipping when player flips
     }
 
     private void Update()
     {
-        //Vector2 direction = playerOrientation == 1 ? Vector2.right : Vector2.left;
         transform.Translate(Vector2.right * Time.deltaTime * speed * playerOrientation);
     }
 }
