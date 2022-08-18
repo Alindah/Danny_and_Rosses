@@ -29,7 +29,6 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("hit!");
         hitpoints -= damage;
 
         if (hitpoints <= 0)
@@ -39,5 +38,10 @@ public class Entity : MonoBehaviour
     protected virtual void OnDeath()
     {
         Destroy(gameObject);
+    }
+
+    public void KnockBack(Vector2 direction)
+    {
+        transform.Translate(direction * Time.deltaTime);
     }
 }
