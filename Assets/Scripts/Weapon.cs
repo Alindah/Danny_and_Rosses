@@ -88,6 +88,7 @@ public class Weapon : MonoBehaviour
         weaponContainer.position = playerWeaponContainer.position;
 
         Inventory.weapon = gameObject.GetComponent<Weapon>();
+        Inventory.weapon.GetComponent<Collider2D>().enabled = false;    // Turn off collider
         Destroy(ammoFloaty);
     }
 
@@ -99,6 +100,7 @@ public class Weapon : MonoBehaviour
         // Only drop weapons that are being held and make sure it's set to the correct facing orientation
         playerWeaponContainer.GetChild(0).parent = allWeaponsContainer;
         AlignWithPlayerOrientation();
+        Inventory.weapon.GetComponent<Collider2D>().enabled = true;     // Turn collider back on
         Inventory.weapon = null;
     }
 

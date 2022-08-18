@@ -24,7 +24,7 @@ public class PlayerController : Entity
         gravity = rb.gravityScale;
     }
 
-    void Update()
+    private void Update()
     {
         // Player must select their character before playing
         if (!GameController.Player)
@@ -35,6 +35,13 @@ public class PlayerController : Entity
             allowClimbing = true;
         
         MovePlayer();
+    }
+
+    protected override void OnDeath()
+    {
+        // Show lose screen
+        Debug.Log("You died!");
+        GameController.PauseGame();
     }
 
     private void OnMouseDown()
@@ -107,9 +114,15 @@ public class PlayerController : Entity
         return false;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(ENEMY_TAG))
+            TakeDamage(other.GetComponent<Enemy>().damage);
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == LADDER_TAG)
+        if (other.CompareTag(LADDER_TAG))
         {
             isContactingLadder = true;
 

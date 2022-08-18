@@ -29,13 +29,14 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("hit!");
         hitpoints -= damage;
 
         if (hitpoints <= 0)
             OnDeath();
     }
 
-    protected void OnDeath()
+    protected virtual void OnDeath()
     {
         Destroy(gameObject);
     }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public float damage = 1;
+
     protected void Patrol()
     {
         // Walk towards direction facing
@@ -18,6 +20,5 @@ public class Enemy : Entity
             FlipEntity();
             transform.position = new Vector2 (xBoundaryLeft, transform.position.y);
         }
-            
     }
 }
