@@ -330,7 +330,7 @@ MonoBehaviour:
   hitpoints: 100
   invincibilityTime: 0
   damage: 1
-  knockback: 50
+  knockback: 0
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +445,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1021914034}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &20551721
 SpriteRenderer:
@@ -901,6 +901,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
+  healthBar: {fileID: 1168412372}
 --- !u!50 &252507758
 Rigidbody2D:
   serializedVersion: 4
@@ -1350,6 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d8626b552ea6a4095486f2bceeb42a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  devMode: 0
   rossesObjects:
   - {fileID: 252507753}
   - {fileID: 1168412372}
@@ -1862,7 +1864,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1021914034}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &558191084
 SpriteRenderer:
@@ -2616,11 +2618,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1542254361}
-  - {fileID: 1593033224}
-  - {fileID: 259889376}
-  - {fileID: 20551720}
   - {fileID: 558191083}
+  - {fileID: 20551720}
+  - {fileID: 259889376}
+  - {fileID: 1593033224}
+  - {fileID: 1542254361}
   m_Father: {fileID: 1968033781}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3437,7 +3439,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1021914034}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1542254362
 SpriteRenderer:
@@ -3739,7 +3741,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1021914034}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1593033225
 SpriteRenderer:
@@ -4087,7 +4089,7 @@ MonoBehaviour:
   hitpoints: 20
   invincibilityTime: 0
   damage: 1
-  knockback: 50
+  knockback: 0
 --- !u!1 &1686392932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,6 +4596,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 16384
+  healthBar: {fileID: 1021914033}
 --- !u!61 &1802440723
 BoxCollider2D:
   m_ObjectHideFlags: 0

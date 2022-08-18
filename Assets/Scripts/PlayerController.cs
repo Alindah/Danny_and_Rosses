@@ -138,7 +138,11 @@ public class PlayerController : Entity
             return;
 
         if (other.CompareTag(ENEMY_TAG))
-            TakeDamage(other.GetComponent<Enemy>().damage);
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            TakeDamage(enemy.damage);
+            KnockBack(new Vector2(enemy.knockback * enemy.orientation.x, 0));
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
