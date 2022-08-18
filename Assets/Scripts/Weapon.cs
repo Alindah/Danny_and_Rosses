@@ -109,7 +109,9 @@ public class Weapon : MonoBehaviour
     {
         if (ammoAvailable > 0)
         {
-            ammoAvailable--;
+            if (!GameController.infiniteAmmo)
+                ammoAvailable--;
+
             Instantiate(ammoObject, bulletContainer);
         }
         else

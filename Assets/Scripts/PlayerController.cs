@@ -11,6 +11,9 @@ public class PlayerController : Entity
     [Header("ENVIRONMENT")]
     public LayerMask groundLayer;
 
+    [Header("HEALTH")]
+    public GameObject healthBar;
+
     private float horizontalInput;
     private float verticalInput;
     private float gravity;
@@ -22,6 +25,7 @@ public class PlayerController : Entity
     {
         base.Start();
         gravity = rb.gravityScale;
+        hitpoints = healthBar.transform.childCount;
     }
 
     private void Update()
@@ -39,6 +43,9 @@ public class PlayerController : Entity
 
     protected override void OnDeath()
     {
+        if (GameController.godMode)
+            return;
+
         // Show lose screen
         Debug.Log("You died!");
         GameController.PauseGame();
@@ -112,6 +119,17 @@ public class PlayerController : Entity
             return true;
 
         return false;
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        if (IsInvincible())
+            return;
+
+        // Hide life when damaged
+        healthBar.transform.GetChild((int)hitpoints - 1).gameObject.SetActive(false);
+
+        base.TakeDamage(damage);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

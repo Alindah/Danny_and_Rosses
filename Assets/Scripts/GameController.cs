@@ -3,6 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [Header("Dev Mode")]
+    public bool devMode = false;    // Enable dev tools
+    public static bool godMode = true;
+    public static bool infiniteAmmo = true;
+
+    [Header("Game Objects")]
     public GameObject[] rossesObjects;      // First item must be player Rosses
     public GameObject[] dannyObjects;       // First item must be player Danny
     public GameObject[] labelObjects;
@@ -11,14 +17,21 @@ public class GameController : MonoBehaviour
 
     public void Start()
     {
+        if (!devMode)
+        {
+            godMode = false;
+            infiniteAmmo = false;
+        }
+
         PauseGame();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (devMode)
         {
-            SceneManager.LoadScene(0);
+            if (Input.GetKeyDown(KeyCode.Tab))
+                SceneManager.LoadScene(0);
         }
     }
 

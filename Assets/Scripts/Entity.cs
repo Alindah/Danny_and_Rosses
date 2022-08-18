@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour
         orientation.x = -orientation.x;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         if (isInvincible)
             return;
