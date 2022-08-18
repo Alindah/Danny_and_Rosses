@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public int ammoCapacity;
     public int ammoAvailable;
     public float projectileSpeed;
+    public float damage;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
 
     private bool isColliding = false;   // Check if player is touching weapon

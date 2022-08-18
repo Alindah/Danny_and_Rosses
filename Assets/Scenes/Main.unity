@@ -326,6 +326,7 @@ MonoBehaviour:
   speed: 2
   xBoundary: 8
   orientation: {x: -1, y: 1, z: 1}
+  hitpoints: 100
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +865,7 @@ MonoBehaviour:
   speed: 5
   xBoundary: 8.5
   orientation: {x: 1, y: 1, z: 1}
+  hitpoints: 3
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
@@ -1745,6 +1747,7 @@ MonoBehaviour:
   ammoCapacity: 100
   ammoAvailable: 100
   projectileSpeed: 22
+  damage: 10
   orientation: {x: 1, y: 1, z: 1}
 --- !u!1 &553124358
 GameObject:
@@ -4488,6 +4491,7 @@ MonoBehaviour:
   speed: 3
   xBoundary: 8.5
   orientation: {x: -1, y: 1, z: 1}
+  hitpoints: 5
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
@@ -4817,6 +4821,7 @@ MonoBehaviour:
   ammoCapacity: 100
   ammoAvailable: 100
   projectileSpeed: 14
+  damage: 5
   orientation: {x: -1, y: 1, z: 1}
 --- !u!50 &1939618477
 Rigidbody2D:

@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
     public float speed;
     public float xBoundary;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
+    public float hitpoints;
 
     protected GameController gameController;
     protected Rigidbody2D rb;
@@ -23,5 +24,18 @@ public class Entity : MonoBehaviour
     {
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         orientation.x = -orientation.x;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        hitpoints -= damage;
+
+        if (hitpoints < 0)
+            OnDeath();
+    }
+
+    protected void OnDeath()
+    {
+        Destroy(gameObject);
     }
 }
