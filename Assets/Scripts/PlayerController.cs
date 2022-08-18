@@ -116,6 +116,9 @@ public class PlayerController : Entity
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (IsInvincible())
+            return;
+
         if (other.CompareTag(ENEMY_TAG))
             TakeDamage(other.GetComponent<Enemy>().damage);
     }

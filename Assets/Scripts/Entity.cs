@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using static Constants;
 
 public class Entity : MonoBehaviour
@@ -8,10 +9,13 @@ public class Entity : MonoBehaviour
     public float xBoundaryLeft;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
     public float hitpoints;
+    public float invincibilityTime;
 
     protected GameController gameController;
     protected Rigidbody2D rb;
     protected Collider2D col;
+
+    private bool isInvincible;
 
     protected virtual void Start()
     {
@@ -33,6 +37,8 @@ public class Entity : MonoBehaviour
 
         if (hitpoints <= 0)
             OnDeath();
+
+        StartCoroutine("ApplyInvincibility");
     }
 
     protected virtual void OnDeath()
@@ -43,5 +49,18 @@ public class Entity : MonoBehaviour
     public void KnockBack(Vector2 direction)
     {
         transform.Translate(direction * Time.deltaTime);
+    }
+
+    private IEnumerator ApplyInvincibility()
+    {
+        // Play flashing animation
+        yield return new WaitForSeconds(invincibilityTime);
+        isInvincible = false;
+        // End flashing animation
+    }
+
+    public bool IsInvincible()
+    {
+        return isInvincible;
     }
 }
