@@ -11,6 +11,9 @@ public class Entity : MonoBehaviour
     public float hitpoints;
     public float invincibilityTime;
 
+    [Header("Animation")]
+    private Animator anim;
+
     protected GameController gameController;
     protected Rigidbody2D rb;
     protected Collider2D col;
@@ -22,6 +25,7 @@ public class Entity : MonoBehaviour
         gameController = GameObject.Find(GAME_CONTROLLER_NAME).GetComponent<GameController>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Flip entity towards direction they are moving
@@ -33,6 +37,9 @@ public class Entity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isInvincible)
+            return;
+
         hitpoints -= damage;
 
         if (hitpoints <= 0)
@@ -53,10 +60,16 @@ public class Entity : MonoBehaviour
 
     private IEnumerator ApplyInvincibility()
     {
-        // Play flashing animation
+        if (anim)
+            anim.Play(ANIM_INVINCIBILITY);
+
+        isInvincible = true;
+
         yield return new WaitForSeconds(invincibilityTime);
         isInvincible = false;
-        // End flashing animation
+
+        if (anim)
+            anim.Play(ANIM_DEFAULT);
     }
 
     public bool IsInvincible()

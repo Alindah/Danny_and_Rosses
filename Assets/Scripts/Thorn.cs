@@ -3,6 +3,8 @@ using static Constants;
 
 public class Thorn : Enemy
 {
+    public Vector2 knockbackDirection;
+
     protected override void OnDeath()
     {
         // Do nothing because thorns never die
@@ -13,5 +15,9 @@ public class Thorn : Enemy
         // Destroy enemies that make contact with thorn
         if (collision.CompareTag(ENEMY_TAG))
             Destroy(collision.gameObject);
+
+        // Knock back players
+        if (collision.CompareTag(PLAYER_TAG))
+            collision.gameObject.GetComponent<Entity>().KnockBack(new Vector2(knockback * knockbackDirection.x, knockbackDirection.y));
     }
 }

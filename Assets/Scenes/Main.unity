@@ -328,7 +328,9 @@ MonoBehaviour:
   xBoundaryLeft: -8
   orientation: {x: -1, y: 1, z: 1}
   hitpoints: 100
+  invincibilityTime: 0
   damage: 1
+  knockback: 50
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +635,10 @@ MonoBehaviour:
   xBoundaryLeft: 10
   orientation: {x: 1, y: 1, z: 1}
   hitpoints: 0
+  invincibilityTime: 0
   damage: 1
+  knockback: 60
+  knockbackDirection: {x: -1, y: 0}
 --- !u!1 &196887064
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +737,7 @@ GameObject:
   - component: {fileID: 252507759}
   - component: {fileID: 252507758}
   - component: {fileID: 252507757}
+  - component: {fileID: 252507760}
   m_Layer: 6
   m_Name: player_rosses
   m_TagString: Player
@@ -888,6 +894,7 @@ MonoBehaviour:
   xBoundaryLeft: -8.5
   orientation: {x: 1, y: 1, z: 1}
   hitpoints: 3
+  invincibilityTime: 1.5
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
@@ -941,6 +948,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3185754, y: 0.89}
   m_EdgeRadius: 0
+--- !u!95 &252507760
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252507753}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb2eed598cbda4bbc8908b8365bf15d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &259889375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2130,10 @@ MonoBehaviour:
   xBoundaryLeft: 10
   orientation: {x: 1, y: 1, z: 1}
   hitpoints: 0
+  invincibilityTime: 0
   damage: 1
+  knockback: 60
+  knockbackDirection: {x: 1, y: 0}
 --- !u!1 &669360468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,7 +4085,9 @@ MonoBehaviour:
   xBoundaryLeft: -1.75
   orientation: {x: 1, y: 1, z: 1}
   hitpoints: 20
+  invincibilityTime: 0
   damage: 1
+  knockback: 50
 --- !u!1 &1686392932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,6 +4409,7 @@ GameObject:
   - component: {fileID: 1802440723}
   - component: {fileID: 1802440721}
   - component: {fileID: 1802440722}
+  - component: {fileID: 1802440724}
   m_Layer: 6
   m_Name: player_danny
   m_TagString: Player
@@ -4554,6 +4587,7 @@ MonoBehaviour:
   xBoundaryLeft: -8.5
   orientation: {x: -1, y: 1, z: 1}
   hitpoints: 5
+  invincibilityTime: 1.5
   climbSpeedPercent: 0.5
   jumpForce: 200
   ladderOffset: 0.66
@@ -4586,6 +4620,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8908229, y: 1.01}
   m_EdgeRadius: 0
+--- !u!95 &1802440724
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802440717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 135b8dcda42af4150a625d805838444d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1885964008
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
     public float damage = 1;
+    public float knockback = 50;
 
     protected void Patrol()
     {

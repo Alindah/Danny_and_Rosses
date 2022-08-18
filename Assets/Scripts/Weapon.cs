@@ -110,7 +110,6 @@ public class Weapon : MonoBehaviour
         if (ammoAvailable > 0)
         {
             ammoAvailable--;
-            Debug.Log(ammoAvailable);
             Instantiate(ammoObject, bulletContainer);
         }
         else
