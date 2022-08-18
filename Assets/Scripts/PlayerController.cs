@@ -76,13 +76,13 @@ public class PlayerController : Entity
                 FlipEntity();
 
             // Move in direction, but do not allow movement beyond boundary or on ladder
-            if (Mathf.Abs(transform.position.x + horizontalSpeed) < Mathf.Abs(xBoundary) && !isOnLadder)
+            if (Mathf.Abs(transform.position.x + horizontalSpeed) < Mathf.Abs(xBoundaryRight) && !isOnLadder)
                 transform.Translate(Vector3.right * horizontalSpeed);
 
-            if (transform.position.x > xBoundary)
-                transform.position = new Vector2(xBoundary, transform.position.y);
-            else if (transform.position.x < -xBoundary)
-                transform.position = new Vector2(-xBoundary, transform.position.y);
+            if (transform.position.x > xBoundaryRight)
+                transform.position = new Vector2(xBoundaryRight, transform.position.y);
+            else if (transform.position.x < xBoundaryLeft)
+                transform.position = new Vector2(xBoundaryLeft, transform.position.y);
         }
 
         // Make player jump

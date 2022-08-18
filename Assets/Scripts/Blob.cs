@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Monster : Enemy
+public class Blob : Enemy
 {
     private void Update()
     {

@@ -8,7 +8,16 @@ public class Enemy : Entity
         transform.Translate(new Vector3(orientation.x, 0, 0) * Time.deltaTime * speed);
 
         // Flip if reached boundaries
-        if (Mathf.Abs(transform.position.x) > Mathf.Abs(xBoundary))
+        if (transform.position.x > xBoundaryRight)
+        {
             FlipEntity();
+            transform.position = new Vector2(xBoundaryRight, transform.position.y);
+        }
+        else if (transform.position.x < xBoundaryLeft)
+        {
+            FlipEntity();
+            transform.position = new Vector2 (xBoundaryLeft, transform.position.y);
+        }
+            
     }
 }

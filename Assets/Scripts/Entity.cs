@@ -4,7 +4,8 @@ using static Constants;
 public class Entity : MonoBehaviour
 {
     public float speed;
-    public float xBoundary;
+    public float xBoundaryRight;
+    public float xBoundaryLeft;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
     public float hitpoints;
 
@@ -30,7 +31,7 @@ public class Entity : MonoBehaviour
     {
         hitpoints -= damage;
 
-        if (hitpoints < 0)
+        if (hitpoints <= 0)
             OnDeath();
     }
 

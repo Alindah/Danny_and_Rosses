@@ -324,7 +324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  xBoundary: 8
+  xBoundaryRight: 8
+  xBoundaryLeft: -8
   orientation: {x: -1, y: 1, z: 1}
   hitpoints: 100
 --- !u!1 &8229347
@@ -863,7 +864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  xBoundary: 8.5
+  xBoundaryRight: 8.5
+  xBoundaryLeft: -8.5
   orientation: {x: 1, y: 1, z: 1}
   hitpoints: 3
   climbSpeedPercent: 0.5
@@ -3867,6 +3869,7 @@ GameObject:
   - component: {fileID: 1635838366}
   - component: {fileID: 1635838367}
   - component: {fileID: 1635838368}
+  - component: {fileID: 1635838369}
   m_Layer: 8
   m_Name: enemy_blob
   m_TagString: Enemy
@@ -3995,6 +3998,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1635838369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635838364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d894d2fff34c47198082b069655759c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  xBoundaryRight: 3
+  xBoundaryLeft: -1.75
+  orientation: {x: 1, y: 1, z: 1}
+  hitpoints: 20
 --- !u!1 &1686392932
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,7 +4509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  xBoundary: 8.5
+  xBoundaryRight: 8.5
+  xBoundaryLeft: -8.5
   orientation: {x: -1, y: 1, z: 1}
   hitpoints: 5
   climbSpeedPercent: 0.5
