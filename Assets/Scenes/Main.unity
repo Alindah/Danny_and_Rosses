@@ -1872,6 +1872,7 @@ MonoBehaviour:
   projectileSpeed: 22
   damage: 10
   knockback: 70
+  fireDelay: 1.5
   orientation: {x: 1, y: 1, z: 1}
 --- !u!1 &553124358
 GameObject:
@@ -5014,6 +5015,7 @@ MonoBehaviour:
   projectileSpeed: 14
   damage: 5
   knockback: 10
+  fireDelay: 0.25
   orientation: {x: -1, y: 1, z: 1}
 --- !u!50 &1939618477
 Rigidbody2D:

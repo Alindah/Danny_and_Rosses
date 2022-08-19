@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using static Constants;
 
 public class Weapon : MonoBehaviour
@@ -10,13 +11,15 @@ public class Weapon : MonoBehaviour
     public int ammoAvailable;
     public float projectileSpeed;
     public float damage;
-    public float knockback = 0;
+    public float knockback;
+    public float fireDelay;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
 
     private bool isColliding = false;   // Check if player is touching weapon
     private Transform weaponContainer;      // The container that holds the weapon
     private Transform allWeaponsContainer;  // Original parent of weapons and where they will drop in the hierarchy
     private Transform playerWeaponContainer;    // Container where player would be holding the weapon
+    private bool isFired = false;
 
     private void Start()
     {
@@ -107,16 +110,28 @@ public class Weapon : MonoBehaviour
 
     private void FireWeapon()
     {
+        if (IsInvoking("SpawnProjectile"))
+            return;
+
         if (ammoAvailable > 0)
         {
             if (!GameController.infiniteAmmo)
                 ammoAvailable--;
 
-            Instantiate(ammoObject, bulletContainer);
+            if (!isFired)
+                StartCoroutine("SpawnProjectile");
         }
         else
         {
             // Click click click
         }
+    }
+
+    private IEnumerator SpawnProjectile()
+    {
+        isFired = true;
+        Instantiate(ammoObject, bulletContainer);
+        yield return new WaitForSeconds(fireDelay);
+        isFired = false;
     }
 }
