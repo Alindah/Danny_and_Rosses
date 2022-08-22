@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click any key to continue
+  m_text: (Press any key to continue)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c67f433a6291641189aa316d38e1f748, type: 2}
   m_sharedMaterial: {fileID: -7174951524986658058, guid: c67f433a6291641189aa316d38e1f748, type: 2}
