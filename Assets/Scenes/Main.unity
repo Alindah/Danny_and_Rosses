@@ -331,6 +331,8 @@ MonoBehaviour:
   invincibilityTime: 0
   damage: 1
   knockback: 0
+  patrolXBoundaryRight: 8
+  patrolXBoundaryLeft: -8
 --- !u!1 &8229347
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +711,8 @@ MonoBehaviour:
   invincibilityTime: 0
   damage: 1
   knockback: 60
+  patrolXBoundaryRight: 0
+  patrolXBoundaryLeft: 0
   knockbackDirection: {x: -1, y: 0}
 --- !u!1 &196887064
 GameObject:
@@ -2208,6 +2212,8 @@ MonoBehaviour:
   invincibilityTime: 0
   damage: 1
   knockback: 60
+  patrolXBoundaryRight: 0
+  patrolXBoundaryLeft: 0
   knockbackDirection: {x: 1, y: 0}
 --- !u!1 &669360468
 GameObject:
@@ -4163,6 +4169,8 @@ MonoBehaviour:
   invincibilityTime: 0
   damage: 1
   knockback: 0
+  patrolXBoundaryRight: 8
+  patrolXBoundaryLeft: -8
 --- !u!1 &1686392932
 GameObject:
   m_ObjectHideFlags: 0
