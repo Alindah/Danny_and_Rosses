@@ -15,6 +15,6 @@ public class Win : MonoBehaviour
     {
         GameController.PauseGame();
         winDialog.DisplayPanel();
-        GameController.GameIsActive = false;
+        GameController.GameIsComplete = true;
     }
 }

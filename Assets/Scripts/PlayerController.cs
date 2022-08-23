@@ -53,7 +53,7 @@ public class PlayerController : Entity
     private void OnMouseDown()
     {
         // Select a player to play by clicking on them
-        if (!GameController.Player)
+        if (!GameController.Player && GameController.GameIsStarted)
         {
             GameController.Player = gameObject;
             gameController.DestroyUnselected();

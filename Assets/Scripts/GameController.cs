@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Constants;
 
 public class GameController : MonoBehaviour
 {
@@ -17,7 +16,8 @@ public class GameController : MonoBehaviour
     [Header("Panels")]
     public Dialog losePanel;
 
-    private static bool gameIsActive = true;
+    private static bool gameIsStarted = false;
+    private static bool gameIsComplete = false;
     private static GameObject player;
 
     public void Start()
@@ -69,7 +69,8 @@ public class GameController : MonoBehaviour
     public static void RestartGame()
     {
         SceneManager.LoadScene(0);
-        GameIsActive = true;
+        gameIsComplete = false;
+        gameIsStarted = false;
     }
 
     public static bool IsGamePaused()
@@ -81,12 +82,18 @@ public class GameController : MonoBehaviour
     {
         PauseGame();
         losePanel.DisplayPanel();
-        GameIsActive = false;
+        GameIsComplete = true;
     }
 
-    public static bool GameIsActive
+    public static bool GameIsStarted
     {
-        get { return gameIsActive; }
-        set { gameIsActive = value; }
+        get { return gameIsStarted; }
+        set { gameIsStarted = value; }
+    }
+
+    public static bool GameIsComplete
+    {
+        get { return gameIsComplete; }
+        set { gameIsComplete = value; }
     }
 }
