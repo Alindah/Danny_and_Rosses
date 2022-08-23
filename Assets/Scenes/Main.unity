@@ -805,6 +805,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374396765}
     m_Modifications:
+    - target: {fileID: 2111063257646549882, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: You died! :(
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520549584314098171, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: 'RIP
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264849772336721198, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: (Press any key to restart)
+      objectReference: {fileID: 0}
     - target: {fileID: 4015648926379779240, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_Name
       value: LosePanel
@@ -2519,13 +2533,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374396765}
     m_Modifications:
+    - target: {fileID: 2111063257646549882, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: 'You win!
+
+        Yes, that was really it.
+
+        That was the whole
+        game.
+
+        Thanks for playing!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520549584314098171, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: Congrats!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264849772336721198, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_text
+      value: (Press any key to play again)
+      objectReference: {fileID: 0}
     - target: {fileID: 4015648926379779240, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_Name
       value: WinPanel
       objectReference: {fileID: 0}
     - target: {fileID: 4015648926379779240, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4015648926379779241, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_Pivot.x
@@ -6048,6 +6081,10 @@ PrefabInstance:
     - target: {fileID: 4015648926379779240, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_Name
       value: InstructionsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015648926379779240, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4015648926379779241, guid: 869ffbaa55ca64b8e8c30d3a689edff1, type: 3}
       propertyPath: m_Pivot.x
