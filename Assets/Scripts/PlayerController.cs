@@ -47,8 +47,7 @@ public class PlayerController : Entity
             return;
 
         // Show lose screen
-        Debug.Log("You died!");
-        GameController.PauseGame();
+        gameController.LoseGame();
     }
 
     private void OnMouseDown()

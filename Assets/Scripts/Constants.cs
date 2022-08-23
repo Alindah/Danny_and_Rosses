@@ -9,5 +9,6 @@ public static class Constants
     public static string WEAPON_TAG => "Weapon";
     public static string PLAYER_WEAPON_CONTAINER => "WeaponContainer";
     public static string SPAWN_CONTAINER => "SpawnContainer";
+    public static string LOSE_PANEL => "LosePanel";
 }
 

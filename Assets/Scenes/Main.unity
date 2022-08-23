@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30b50b9e4343444794eb3638fa2600d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winDialog: {fileID: 886330194}
 --- !u!1 &103641358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1562,7 @@ MonoBehaviour:
   labelObjects:
   - {fileID: 2128225015}
   - {fileID: 196887064}
+  losePanel: {fileID: 1587603294}
 --- !u!4 &434576344
 Transform:
   m_ObjectHideFlags: 0

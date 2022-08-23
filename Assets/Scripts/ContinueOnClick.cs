@@ -1,11 +1,16 @@
 using UnityEngine;
 
-public class ContinueOnClick : UIHandler
+public class ContinueOnClick : Dialog
 {
     private void Update()
     {
         // Continue upon pressing any key
         if (Input.anyKeyDown)
-            HidePanel(gameObject);
+        {
+            HidePanel();
+
+            if (!GameController.GameIsActive)
+                GameController.RestartGame();
+        }
     }
 }

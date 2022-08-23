@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Constants;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameController : MonoBehaviour
     public GameObject[] dannyObjects;       // First item must be player Danny
     public GameObject[] labelObjects;
 
+    [Header("Panels")]
+    public Dialog losePanel;
+
+    private static bool gameIsActive = true;
     private static GameObject player;
 
     public void Start()
@@ -22,17 +27,8 @@ public class GameController : MonoBehaviour
             godMode = false;
             infiniteAmmo = false;
         }
-
+        
         PauseGame();
-    }
-
-    private void Update()
-    {
-        if (devMode)
-        {
-            if (Input.GetKeyDown(KeyCode.Tab))
-                SceneManager.LoadScene(0);
-        }
     }
 
     public void DestroyUnselected()
@@ -70,8 +66,27 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public static void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+        GameIsActive = true;
+    }
+
     public static bool IsGamePaused()
     {
         return Time.timeScale == 0f;
+    }
+
+    public void LoseGame()
+    {
+        PauseGame();
+        losePanel.DisplayPanel();
+        GameIsActive = false;
+    }
+
+    public static bool GameIsActive
+    {
+        get { return gameIsActive; }
+        set { gameIsActive = value; }
     }
 }

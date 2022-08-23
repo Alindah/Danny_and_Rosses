@@ -3,6 +3,8 @@ using static Constants;
 
 public class Win : MonoBehaviour
 {
+    public Dialog winDialog;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(PLAYER_TAG))
@@ -11,8 +13,8 @@ public class Win : MonoBehaviour
 
     public void WinGame()
     {
-        Debug.Log("Hooray you win!!!");
         GameController.PauseGame();
-        // Show win dialog box
+        winDialog.DisplayPanel();
+        GameController.GameIsActive = false;
     }
 }
