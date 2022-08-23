@@ -15,16 +15,21 @@ public class Weapon : MonoBehaviour
     public float fireDelay;
     public Vector3 orientation = new Vector3(1, 1, 1);     // x = -1 if facing left, 1 if facing right
 
+    [Header("ENVIRONMENT")]
+    public LayerMask groundLayer;
+
     private bool isColliding = false;   // Check if player is touching weapon
     private Transform weaponContainer;      // The container that holds the weapon
     private Transform allWeaponsContainer;  // Original parent of weapons and where they will drop in the hierarchy
     private Transform playerWeaponContainer;    // Container where player would be holding the weapon
     private bool isFired = false;
+    private Rigidbody2D rb;
 
     private void Start()
     {
         weaponContainer = transform.parent;
         allWeaponsContainer = weaponContainer.parent;
+        rb = weaponContainer.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -47,6 +52,16 @@ public class Weapon : MonoBehaviour
         // Fire weapon
         if (Input.GetKeyDown(KeyCode.X) && IsWeaponHeld())
             FireWeapon();
+
+        // Make weapon fall to ground if not grounded
+        if (Inventory.weapon != this && rb.bodyType == RigidbodyType2D.Dynamic)
+        {
+            if (IsGrounded())
+            {
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.velocity = Vector2.zero;
+            }                
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +74,21 @@ public class Weapon : MonoBehaviour
     {
         if (collision.CompareTag(PLAYER_TAG))
             isColliding = false;
+    }
+
+    private bool IsGrounded()
+    {
+        Vector2 position = weaponContainer.position;
+        Vector2 direction = Vector2.down;
+        float distance = 0.35f;
+
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+        Debug.DrawRay(position, direction, Color.blue);
+
+        if (hit.collider != null)
+            return true;
+
+        return false;
     }
 
     public void AlignWithPlayerOrientation()
@@ -92,6 +122,7 @@ public class Weapon : MonoBehaviour
         weaponContainer.position = playerWeaponContainer.position;
 
         Inventory.weapon = gameObject.GetComponent<Weapon>();
+        Inventory.weapon.rb.bodyType = RigidbodyType2D.Kinematic;
         Inventory.weapon.GetComponent<Collider2D>().enabled = false;    // Turn off collider
         Destroy(ammoFloaty);
     }
@@ -105,6 +136,7 @@ public class Weapon : MonoBehaviour
         playerWeaponContainer.GetChild(0).parent = allWeaponsContainer;
         AlignWithPlayerOrientation();
         Inventory.weapon.GetComponent<Collider2D>().enabled = true;     // Turn collider back on
+        Inventory.weapon.rb.bodyType = RigidbodyType2D.Dynamic;
         Inventory.weapon = null;
     }
 
